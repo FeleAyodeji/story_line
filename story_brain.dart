@@ -31,47 +31,58 @@ class StoryBrain {
         'You bond with the murderer while crooning verses of "Can you feel the love tonight". He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: "Try the pier".',
         choice1: 'Restart',
         choice2: '')
-  ];}
-
-
-
-String getStory() {
-  return _storyData[_storyNumber].storyTitle;
-}
-
-String getChoice1(){
-  return _storyData[_storyNumber].choice1;
-}
-
-String getChoice2(){
-  return _storyData[_storyNumber].choice2;
-}
-
-int _storyNumber = 0;
-
-void nextStory(int choiceNumber){
-
-  if (choiceNumber == 1 && _storyNumber == 0) {
-    _storyNumber = 2;
-  } else if (choiceNumber == 2 && _storyNumber == 0) {
-    _storyNumber = 1;
-  } else if (choiceNumber == 1 && _storyNumber == 1) {
-    _storyNumber = 2;
-  } else if (choiceNumber == 2 && _storyNumber == 1) {
-    _storyNumber = 3;
-  } else if (choiceNumber == 1 && _storyNumber == 2) {
-    _storyNumber = 5;
-  } else if (choiceNumber == 2 && _storyNumber == 2) {
-    _storyNumber = 4;
+  ];
+  String getStory() {
+    return _storyData[_storyNumber].storyTitle;
   }
-  else if ( _storyNumber == 3 || _storyNumber == 4 ||_storyNumber == 5) {
-    reset();
+
+  String getChoice1(){
+    return _storyData[_storyNumber].choice1;
   }
+
+  String getChoice2(){
+    return _storyData[_storyNumber].choice2;
+  }
+
+  int _storyNumber = 0;
+
+  void nextStory(int choiceNumber){
+
+    if (choiceNumber == 1 && _storyNumber == 0) {
+      _storyNumber = 2;
+    } else if (choiceNumber == 2 && _storyNumber == 0) {
+      _storyNumber = 1;
+    } else if (choiceNumber == 1 && _storyNumber == 1) {
+      _storyNumber = 2;
+    } else if (choiceNumber == 2 && _storyNumber == 1) {
+      _storyNumber = 3;
+    } else if (choiceNumber == 1 && _storyNumber == 2) {
+      _storyNumber = 5;
+    } else if (choiceNumber == 2 && _storyNumber == 2) {
+      _storyNumber = 4;
+    }
+    else if ( _storyNumber == 3 || _storyNumber == 4 ||_storyNumber == 5) {
+      reset();
+    }
+  }
+
+  void reset() {
+    _storyNumber = 0;
+  }
+
+
+  bool buttonShouldBeVisible( ){
+    if (_storyNumber == 0 | 1 | 2 ){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
+
 }
 
-void reset() {
-  _storyNumber = 0;
-}
 
 
-//TODO: Step 27 - Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
