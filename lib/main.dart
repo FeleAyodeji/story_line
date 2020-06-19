@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'story_brain.dart';
-
-StoryBrain storyBrain =  StoryBrain();
 
 
 void main() => runApp(Storyline());
@@ -16,8 +13,10 @@ class Storyline extends StatelessWidget {
   }
 }
 
+StoryBrain storyBrain =  StoryBrain();
 
 class StoryPage extends StatefulWidget {
+
   _StoryPageState createState() => _StoryPageState();
 }
 
@@ -73,7 +72,7 @@ class _StoryPageState extends State<StoryPage> {
               Expanded(
                 flex: 2,
                 child: Visibility(
-                 visible: storyBrain.buttonShouldVisible(),
+                 visible: storyBrain.buttonShouldBeVisible(),
                  child: FlatButton(
                  onPressed: () {
                    setState(() {
